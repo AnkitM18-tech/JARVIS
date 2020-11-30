@@ -62,3 +62,28 @@ def takeCommand():
         return "None"
     return query
 
+def quitScr():
+    import sys
+    return sys.exit()
+
+def sendEmail(to,content):
+    server=smtplib.SMTP("smtp.gmail.com",587)
+    server.ehlo()
+    server.starttls()
+    server.login("ankitmohanty1804@gmail.com","")
+    server.sendmail("ankitmohanty1804@gmail.com",to,content)
+    server.close()
+    
+def screenShot():
+    img=pyautogui.screenshot()
+    img.save("C:\\Users\\OCAC\\Desktop\\Python Programs\\Projects\\screenshot.png")
+    
+def cpuUsage():
+    usage=str(psutil.cpu_percent())
+    speak("CPU is at "+usage)
+    battery=psutil.sensors_battery()
+    speak("Battery is at")
+    speak(battery.percent )
+    
+def tellJokes():
+    speak(pyjokes.get_joke())
