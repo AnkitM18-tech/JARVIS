@@ -45,20 +45,20 @@ def wishme():
         speak("Good Night Ankit!")
     speak("JARVIS at your service! Please,tell me How can I Help You?")
 
-    def takeCommand():
-        r=sr.Recognizer()
-        with sr.Microphone() as source:
-            r.adjust_for_ambient_noise(source,duration=5)
-            print("Listening...")
-            r.pause_threshold=1
-            audio=r.listen(source)    
-        try:
-            print("Recognizing...")
-            query=r.recognize_google(audio,language='en-in')
-            print(query)
-        except Exception as ex:
-            print(ex)
-            speak("Unable To Recognize! Say That Again please....")
-            return "None"
-        return query
+def takeCommand():
+    r=sr.Recognizer()
+    with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source,duration=5)
+        print("Listening...")
+        r.pause_threshold=1
+        audio=r.listen(source)    
+    try:
+        print("Recognizing...")
+        query=r.recognize_google(audio,language='en-in')
+        print(query)
+    except Exception as ex:
+        print(ex)
+        speak("Unable To Recognize! Say That Again please....")
+        return "None"
+    return query
 
